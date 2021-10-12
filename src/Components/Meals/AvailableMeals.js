@@ -24,6 +24,7 @@ const AvailableMeals = () => {
           name: data[key].name,
           description: data[key].description,
           price: data[key].price,
+          img: data[key].img,
         });
       }
       setMeals(loadedMeals);
@@ -53,20 +54,21 @@ const AvailableMeals = () => {
   }
 
   const mealsList = meals.map((meal) => (
-    <MealItem
-      id={meal.id}
-      key={meal.id}
-      name={meal.name}
-      description={meal.description}
-      price={meal.price}
-    ></MealItem>
+    <Card>
+      <MealItem
+        id={meal.id}
+        key={meal.id}
+        name={meal.name}
+        description={meal.description}
+        price={meal.price}
+        img={meal.img}
+      ></MealItem>
+    </Card>
   ));
 
   return (
     <section className={classes.meals}>
-      <Card>
-        <ul>{mealsList}</ul>
-      </Card>
+      <ul>{mealsList}</ul>
     </section>
   );
 };

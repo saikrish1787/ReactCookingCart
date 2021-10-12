@@ -4,7 +4,7 @@ import { useContext } from "react";
 import CartContext from "../../../store/cart-context";
 
 const MealItem = (props) => {
-  const price = `$${props.price.toFixed(2)}`;
+  const price = `₹${props.price.toFixed(2)}`;
 
   const cartCtx = useContext(CartContext);
   // console.log(cartCtx);
@@ -20,6 +20,12 @@ const MealItem = (props) => {
 
   return (
     <li className={classes.meal}>
+      <img
+        src={props.img}
+        width="150px"
+        height="100px"
+        className={classes.meal_img}
+      />
       <div>
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.description}</div>
